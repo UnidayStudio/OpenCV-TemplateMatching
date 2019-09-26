@@ -1,8 +1,8 @@
 from image import *
 from video import *
 
-SOURCE_VIDEO = "project/entrada.avi"
-SOURCE_MARKER = "project/alvo.jpg"
+SOURCE_VIDEO = "entrada.avi"
+SOURCE_MARKER = "alvo.jpg"
 		
 # (azul, verde, vermelho e ciano)		
 SHAPE_COLORS = [[[255,0,0], [0,255,0],[0,0,255],[255,255,0]],
