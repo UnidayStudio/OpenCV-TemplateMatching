@@ -1,2 +1,4 @@
 # OpenCV-TemplateMatching
- Template Matching system using python and OpenCV.
+Created by: **Guilherme Teres Nunes**
+
+Template Matching system using python and OpenCV.
