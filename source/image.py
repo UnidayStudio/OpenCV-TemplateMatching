@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 
+import pygame
+
 IMAGE_COMPARE_THRESHOLD = 0.78
 WINDOW_TITLE = "Frame"
 
@@ -24,6 +26,15 @@ class Image():
 			
 		self.points = None
 		self.update()
+
+	def getShape(self):
+		return self._source.shape
+
+	def getSource(self):
+		return self._source
+
+	def getPygameImage(self):
+		return pygame.image.frombuffer(self.getSource().tostring(),self.getShape()[1::-1], "RGB")
 			
 	def update(self):
 		"""Obtém os pontos do shape da imagem."""
@@ -44,7 +55,11 @@ class Image():
 		denominator *= np.sum(np.multiply(source2, source2))
 		denominator = np.sqrt(denominator)
 		
-		res = (numerator/denominator)
+		res = 999
+		try:
+			res = (numerator/denominator)
+		except:
+			pass
 		
 		return res > IMAGE_COMPARE_THRESHOLD
 	
@@ -112,10 +127,8 @@ class Image():
 		"""Obtém a localização do padrão do quadro de xadrez, nenessário para 
 		a calibração da câmera."""
 		returnValue, corners = cv2.findChessboardCorners(self._source, (x, y), None)
-		
-		if returnValue == True:
-			return corners
-		return None
+
+		return returnValue, corners
 		
 	def show(self, waitTime=0):
 		"""Exibe a imagem em uma janela do sistema."""

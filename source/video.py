@@ -9,6 +9,9 @@ from image import *
 class Video():
 	def __init__(self, source):
 		self._source = cv2.VideoCapture(source)
+
+	def getSource(self):
+		return self._source
 	
 	def getFrameList(self, showImages=False):
 		"""Retorna uma lista com todos os frames do vídeo."""
