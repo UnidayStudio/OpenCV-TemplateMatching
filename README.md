@@ -1,4 +1,6 @@
 # OpenCV-TemplateMatching
+![](https://i.ibb.co/WHFdHS3/Screenshot-117.png)
+
 ## Equipe: 
 - **Guilherme Teres Nunes**
 - **Marcelo **
